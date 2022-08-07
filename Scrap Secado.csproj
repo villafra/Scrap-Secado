@@ -76,5 +76,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Automatización\Automatización.csproj">
+      <Project>{e1712bad-eb26-4b4f-940b-45df241afe3d}</Project>
+      <Name>Automatización</Name>
+    </ProjectReference>
+    <ProjectReference Include="BE\BE.csproj">
+      <Project>{5cebcc57-043b-47dc-a929-7b331c2c6028}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
