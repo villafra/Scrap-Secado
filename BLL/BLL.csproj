@@ -44,5 +44,19 @@
     <Compile Include="BLL_KF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Abstract\Abstract.csproj">
+      <Project>{1523ec26-07a2-4ae0-967d-0766e75a2b8b}</Project>
+      <Name>Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{5cebcc57-043b-47dc-a929-7b331c2c6028}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mapper\Mapper.csproj">
+      <Project>{56959550-4087-48ac-a2f0-686267d03084}</Project>
+      <Name>Mapper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
