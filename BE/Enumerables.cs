@@ -18,11 +18,17 @@ namespace BE
             [EnumMember(Value = "Extrusora 3")]
             Extrusora_3 =3,
         }
-        public enum Turno
+        public enum Equipo
         {
             Azul, 
             Rojo,
             Verde
+        }
+        public enum Turno
+        {
+            Mañana,
+            Tarde,
+            Noche
         }
         public enum Familia
         {

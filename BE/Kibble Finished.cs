@@ -15,7 +15,9 @@ namespace BE
         public Enumerables.Familia Familia { get; set; }
         public int Cantidad { get; set; }
 
-
-
+        public double CalcularCosto()
+        {
+            return Costo * Cantidad;
+        }
     }
 }
