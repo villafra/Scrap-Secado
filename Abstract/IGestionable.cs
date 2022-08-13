@@ -12,6 +12,7 @@ namespace Abstract
         bool Baja(T KF);
 
         List<T> Listar();
+        List<T> Listar(string Familia);
         T ListarObjeto(T KF);
 
 

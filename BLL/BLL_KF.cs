@@ -33,6 +33,11 @@ namespace BLL
             return Mapper.Listar();
         }
 
+        public List<Kibble_Finished> Listar(string Familia)
+        {
+            return Mapper.Listar(Familia);
+        }
+
         public Kibble_Finished ListarObjeto(Kibble_Finished KF)
         {
             return Mapper.ListarObjeto(KF);

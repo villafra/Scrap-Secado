@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +11,7 @@ namespace DAL
 {
     public class DataBase
     {
-        private OleDbConnection conexion = new OleDbConnection("@Provider=Microsoft.ACE.OLEDB.12.0;Data Source =| DataDirectory | Materiales.accdb; Persist Security Info = False");
+        private OleDbConnection conexion = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source =|DataDirectory|Materiales.accdb; Persist Security Info = False");
         private OleDbConnection connection;
         private OleDbTransaction transaction;
         private OleDbCommand command;
@@ -23,7 +22,7 @@ namespace DAL
         private void AbrirConexionValidacion()
         {
             connection = new OleDbConnection();
-            connection.ConnectionString = "@Provider=Microsoft.ACE.OLEDB.12.0;Data Source =| DataDirectory | Materiales.accdb; Persist Security Info = False";
+            connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source =| DataDirectory | Materiales.accdb; Persist Security Info = False";
             connection.Open();
         }
         private void CerrarConexion()
@@ -45,12 +44,10 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             OleDbDataAdapter adapter;
-            command = new OleDbCommand(query, conexion);
-            command.CommandType = CommandType.Text;
-
             try
             {
-                adapter = new OleDbDataAdapter(command);
+                adapter = new OleDbDataAdapter(query, conexion);
+                adapter.Fill(dt);
                 if (hashtable != null)
                 {
                     foreach (string key in hashtable.Keys)
@@ -58,24 +55,21 @@ namespace DAL
                         command.Parameters.AddWithValue(key, hashtable[key]);
                     }
                 }
-
             }
-            catch (SqlException sql)
+            catch (OleDbException error)
             {
-                throw sql;
+                throw error;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            adapter.Fill(dt);
+            CerrarConexion();
             return dt;
-
         }
         public bool Escribir(string query, Hashtable hashtable)
         {
             AbrirConexion();
-
             try
             {
                 transaction = conexion.BeginTransaction();
@@ -93,11 +87,11 @@ namespace DAL
                 transaction.Commit();
                 return true;
             }
-            catch (SqlException sql)
+            catch (OleDbException error)
             {
                 transaction.Rollback();
                 return false;
-                throw sql;
+                throw error;
             }
             catch (Exception ex)
             {
@@ -128,10 +122,10 @@ namespace DAL
                 if (respuesta > 0) { return true; }
                 else { return false; }
             }
-            catch (SqlException sql)
+            catch (OleDbException error)
             {
                 return false;
-                throw sql;
+                throw error;
             }
             catch (Exception ex)
             {
@@ -143,5 +137,6 @@ namespace DAL
                 CerrarConexionValidacion();
             }
         }
+
     }
 }

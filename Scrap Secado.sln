@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrap Secado", "Scrap Secado.csproj", "{37B02165-EA74-412E-8F67-3D8ABC73B4D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsApp", "MarsApp.csproj", "{37B02165-EA74-412E-8F67-3D8ABC73B4D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE", "BE\BE.csproj", "{5CEBCC57-043B-47DC-A929-7B331C2C6028}"
 EndProject

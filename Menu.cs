@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BE;
+using BLL;
 
 namespace Scrap_Secado
 {
-    public partial class Form1 : Form
+    public partial class Menu : Form
     {
-        public Form1()
+        BLL_KF oBLL_KF;
+        public Menu()
         {
             InitializeComponent();
+            oBLL_KF = new BLL_KF();
+            oBLL_KF.Listar();
         }
     }
 }

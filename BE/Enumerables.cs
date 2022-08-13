@@ -31,7 +31,10 @@ namespace BE
             Eukanuba,
             Iams,
             Optimum,
-            Champ
+            Champ,
+            [EnumMember(Value = "Royal Canin")]
+            Royal_Canin,
+
         }
         public enum Periodo
         {
