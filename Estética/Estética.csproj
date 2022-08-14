@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E1712BAD-EB26-4B4F-940B-45DF241AFE3D}</ProjectGuid>
+    <ProjectGuid>{4A444752-FDA2-4E7E-9028-2B2BD61A59C1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Automatización</RootNamespace>
-    <AssemblyName>Automatización</AssemblyName>
+    <RootNamespace>Estética</RootNamespace>
+    <AssemblyName>Estética</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -43,9 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aspecto.cs" />
-    <Compile Include="Cálculos.cs" />
-    <Compile Include="MarsCalendar.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

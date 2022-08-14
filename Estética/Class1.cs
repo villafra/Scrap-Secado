@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace Automatización
+namespace Estética
 {
     public static class Aspecto
     {
@@ -21,7 +21,7 @@ namespace Automatización
             int nHeightEllipse
 
       );
-        public static Action<Form, Panel, Panel, int, int> FormatearForm = (formulario, panel, panel1, Width, Height) =>
+        public static Action<Form, Panel, int, int> FormatearForm = (formulario, panel, Width, Height) =>
         {
             formulario.FormBorderStyle = new FormBorderStyle();
             formulario.BackColor = Color.FromArgb(46, 51, 73);
@@ -29,7 +29,6 @@ namespace Automatización
             formulario.AutoScroll = true;
             formulario.IsMdiContainer = true;
             panel.BackColor = Color.FromArgb(24, 30, 54);
-            panel1.BackColor = Color.FromArgb(24, 30, 54);
             panel.Dock = DockStyle.Left;
             FormatearBotonEnPanel(panel);
             FormatearMenuStrip(formulario);
@@ -146,18 +145,6 @@ namespace Automatización
             obj.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
             obj.ForeColor = Color.FromArgb(0, 126, 249);
         };
-        public static Action<Panel> FormatearLabelExterno = (panel) =>
-        {
-            foreach(Control control in panel.Controls)
-            {
-                if (control is Label)
-                {
-                    control.BackColor = Color.FromArgb(24, 30, 54);
-                    control.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
-                    control.ForeColor = Color.FromArgb(0, 126, 249);
-                }
-            }
-        };
         public static Action<Control> FormatearControlInterno = (obj) =>
         {
             obj.BackColor = Color.FromArgb(46, 51, 73);
@@ -219,7 +206,7 @@ namespace Automatización
         };
 
         #region FormatearDGV
-        public static void DGVTurnos(DataGridView dgv)
+        public static void DGVDesvios(DataGridView dgv)
         {
             dgv.Columns[0].HeaderText = "Código";
             dgv.Columns[1].HeaderText = "Nombre del Turno";
@@ -235,7 +222,7 @@ namespace Automatización
             }
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
-
+      
         #endregion
 
 
