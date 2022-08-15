@@ -12,11 +12,11 @@ namespace BE
         public enum Extrusora
         {
             [EnumMember(Value = "Extrusora 1")]
-            Extrusora_1 =1,
+            Extrusora_1 = 1,
             [EnumMember(Value = "Extrusora 2")]
-            Extrusora_2 =2,
+            Extrusora_2 = 2,
             [EnumMember(Value = "Extrusora 3")]
-            Extrusora_3 =3,
+            Extrusora_3 = 3,
         }
         public enum Equipo
         {

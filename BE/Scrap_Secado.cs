@@ -16,6 +16,7 @@ namespace BE
         public Enumerables.Equipo Equipo { get; set; }
         public Enumerables.Extrusora Extrusora { get; set; }
         public Kibble_Finished Kibble { get; set; }
+        public string Motivo { get; set; }
         public double Costo_Desvío { get; set; }
         public string Comentarios { get; set; }
 

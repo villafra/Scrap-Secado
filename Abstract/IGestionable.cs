@@ -10,12 +10,8 @@ namespace Abstract
     {
         bool Guardar(T KF);
         bool Baja(T KF);
-
         List<T> Listar();
         List<T> Listar(string Familia);
         T ListarObjeto(T KF);
-
-
-
     }
 }

@@ -19,5 +19,9 @@ namespace BE
         {
             return Costo * Cantidad;
         }
+        public override string ToString()
+        {
+            return Descripción;
+        }
     }
 }

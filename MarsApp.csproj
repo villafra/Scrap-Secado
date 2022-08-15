@@ -110,5 +110,32 @@
   <ItemGroup>
     <None Include="Resources\1-768x432.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar-codigo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borrar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dispositivos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email-1403475.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Email.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

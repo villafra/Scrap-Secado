@@ -109,14 +109,7 @@ namespace Automatización
                         sino = 1;
                     }
                 }
-                else if (c is NumericUpDown)
-                {
-                    NumericUpDown num = c as NumericUpDown;
-                    if (num.Value == 0)
-                    {
-                        sino = 1;
-                    }
-                }
+               
                 else if (c is ComboBox)
                 {
                     ComboBox combo = c as ComboBox;
@@ -142,22 +135,22 @@ namespace Automatización
         {
             combo.DataSource = null;
             combo.DataSource = refObject;
-            try { combo.ValueMember = "Codigo"; }
-            catch { }
             combo.DisplayMember = DisplayMember;
             combo.SelectedIndex = -1;
             combo.Refresh();
-
         }
 
-        public static void DataSourceComboReporte(ComboBox combo, object refObject, string DisplayMember)
+        public static DateTime UnirFechas(DateTime fecha, DateTime hora)
         {
-            combo.DataSource = null;
-            combo.DataSource = refObject;
-            combo.DisplayMember = DisplayMember;
-            combo.SelectedIndex = -1;
-            combo.Refresh();
-
+            return new DateTime
+            (
+                fecha.Year,
+                fecha.Month,
+                fecha.Day,
+                hora.Hour,
+                hora.Minute,
+                hora.Second
+            );
         }
         public static void MsgBoxSiExiste(string nombre)
         {
@@ -181,7 +174,7 @@ namespace Automatización
         }
         public static void MsgBox(string mensaje)
         {
-            MessageBox.Show(mensaje, "Restó", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(mensaje, "Scrap", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
         public static void MsgBoxAlta(string nombre)
         {

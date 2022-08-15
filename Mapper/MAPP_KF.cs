@@ -67,7 +67,6 @@ namespace Mapper
             }
             return ListadeKF;
         }
-
         public Kibble_Finished ListarObjeto(Kibble_Finished KF)
         {
             throw new NotImplementedException();

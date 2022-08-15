@@ -13,6 +13,12 @@ namespace Mapper
 {
     public class Mapp_Scrap_Secado : IGestionable<Scrap_Secado>
     {
+        Sharepoint share;
+
+        public Mapp_Scrap_Secado()
+        {
+            share = new Sharepoint();
+        }
         public bool Baja(Scrap_Secado KF)
         {
             throw new NotImplementedException();
@@ -20,7 +26,9 @@ namespace Mapper
 
         public bool Guardar(Scrap_Secado KF)
         {
-            throw new NotImplementedException();
+            string[] query = null;
+            query[0]= @"Insert into ";
+            return share.EscribirTransaction(query);
         }
 
         public List<Scrap_Secado> Listar()

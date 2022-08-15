@@ -42,5 +42,13 @@ namespace BLL
         {
             return Mapper.ListarObjeto(KF);
         }
+
+        public int CalcularCantidad(decimal BigBagsMedianos, decimal BigBagsGrandes)
+        {
+            decimal resultado = 0;
+            if (BigBagsGrandes!=0) resultado += BigBagsGrandes * 800;
+            if (BigBagsMedianos != 0) resultado += BigBagsMedianos * 600;
+            return Convert.ToInt32(Math.Ceiling(resultado));
+        }
     }
 }
