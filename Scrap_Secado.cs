@@ -16,6 +16,7 @@ namespace Scrap_Secado
     public partial class frmScrap_Secado : Form
     {
         BLL_KF _KF;
+        BLL_Scrap_Secado _Scrap;
         Kibble_Finished KF;
         BE.Scrap_Secado Scrap;
         public frmScrap_Secado()
@@ -24,6 +25,7 @@ namespace Scrap_Secado
             _KF = new BLL_KF();
             KF = new Kibble_Finished();
             Scrap = new BE.Scrap_Secado();
+            _Scrap = new BLL_Scrap_Secado();
             Aspecto.FormatearDGV(dgvScrap_Secado);
             Aspecto.FormatearGRP(grpNuevoScrap);
         }
@@ -32,6 +34,7 @@ namespace Scrap_Secado
         {
             Refrescar();
             ToolTipiar();
+
         }
 
         private void ToolTipiar()
@@ -52,8 +55,13 @@ namespace Scrap_Secado
             Cálculos.DataSourceCombo(comboEquipo, Enum.GetNames(typeof(Enumerables.Equipo)), "Equipo");
             Cálculos.DataSourceCombo(comboExtrusora, Enum.GetNames(typeof(Enumerables.Extrusora)), "Extrusora");
             Cálculos.DataSourceCombo(ComboFamilia, Enum.GetNames(typeof(Enumerables.Familia)), "Familia");
+            Cálculos.RefreshGrilla(dgvScrap_Secado, _Scrap.Listar(CalcularPeriodo()));
+            Aspecto.DGVScrap(dgvScrap_Secado);
         }
-
+        private string CalcularPeriodo()
+        {
+            return MarsCalendar.MarsPx(Convert.ToDateTime("01/01/2022"), DateTime.Now); 
+        }
 
 
         private void comboKF_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,14 +101,16 @@ namespace Scrap_Secado
             KF.Cantidad = _KF.CalcularCantidad(numMedianos.Value, numGrandes.Value);
 
             Scrap.FechaYHora = Cálculos.UnirFechas(dtpFechaScrap.Value, dtpHoraScrap.Value);
-            Scrap.Turno = (Enumerables.Turno)comboTurno.SelectedItem;
+            Scrap.Turno = (Enumerables.Turno)Enum.Parse(typeof(Enumerables.Turno),comboTurno.SelectedItem.ToString());
             Scrap.Operador = txtOperador.Text;
-            Scrap.Equipo = (Enumerables.Equipo)comboEquipo.SelectedItem;
-            Scrap.Extrusora = (Enumerables.Extrusora)comboExtrusora.SelectedItem;
+            Scrap.Equipo = (Enumerables.Equipo)Enum.Parse(typeof(Enumerables.Equipo),comboEquipo.SelectedItem.ToString());
+            Scrap.Extrusora = (Enumerables.Extrusora)Enum.Parse(typeof(Enumerables.Extrusora),comboExtrusora.SelectedItem.ToString());
             Scrap.Kibble = KF;
             Scrap.Costo_Desvío = KF.CalcularCosto();
             Scrap.Comentarios = txtMotivo.Text;
             Scrap.Motivo = txtMotivo.Text;
+            Scrap.Periodo = (Enumerables.Periodo)Enum.Parse(typeof(Enumerables.Periodo),MarsCalendar.MarsPx(new DateTime(2022, 01, 01), dtpFechaScrap.Value));
+            Scrap.Semana = (Enumerables.Semana)Enum.Parse(typeof(Enumerables.Semana), MarsCalendar.MarsWx(new DateTime(2022, 01, 01), dtpFechaScrap.Value));
         }
 
         private void btnLimpiarPantalla_Click(object sender, EventArgs e)
@@ -112,7 +122,11 @@ namespace Scrap_Secado
         {
             if (Cálculos.Camposvacios(grpNuevoScrap))
             {
-
+                Nuevo();
+                _Scrap.Guardar(Scrap);
+                Cálculos.BorrarCampos(grpNuevoScrap);
+                Cálculos.MsgBoxAlta(Scrap.Kibble.ToString(),Scrap.Kibble.Cantidad);
+                Refrescar();
             }
             else { Cálculos.MsgBox("Por favor, Llene los campos obligatorios"); }
         }

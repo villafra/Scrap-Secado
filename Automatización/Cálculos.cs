@@ -176,9 +176,9 @@ namespace Automatización
         {
             MessageBox.Show(mensaje, "Scrap", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
-        public static void MsgBoxAlta(string nombre)
+        public static void MsgBoxAlta(string nombre, int Cantidad)
         {
-            MessageBox.Show(nombre + " ha sido agregado a la base de datos.", "Restó", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show("El scrap de " + nombre + "\npor una cantidad de " + Cantidad.ToString() + "\nha sido agregado a la base de datos.", "Registro de Scrap", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
         public static void MsgBoxMod(string nombre)
         {

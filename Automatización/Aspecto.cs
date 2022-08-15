@@ -219,14 +219,22 @@ namespace Automatización
         };
 
         #region FormatearDGV
-        public static void DGVTurnos(DataGridView dgv)
+        public static void DGVScrap(DataGridView dgv)
         {
             dgv.Columns[0].HeaderText = "Código";
-            dgv.Columns[1].HeaderText = "Nombre del Turno";
-            dgv.Columns[2].HeaderText = "Hora de Inicio";
-            dgv.Columns[2].DefaultCellStyle.Format = "t";
-            dgv.Columns[3].HeaderText = "Hora de Fin";
-            dgv.Columns[3].DefaultCellStyle.Format = "t";
+            dgv.Columns[1].HeaderText = "Fecha";
+            dgv.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgv.Columns[2].HeaderText = "Turno";
+            dgv.Columns[3].Visible = false;
+            dgv.Columns[4].HeaderText = "Equipo";
+            dgv.Columns[5].HeaderText = "Linea";
+            dgv.Columns[6].HeaderText = "Código KF ";
+            dgv.Columns[7].HeaderText = "Motivo";
+            dgv.Columns[8].HeaderText = "Costo Desvío";
+            dgv.Columns[8].DefaultCellStyle.Format = "c";
+            dgv.Columns[9].Visible = false;
+            dgv.Columns[10].Visible = false;
+            dgv.Columns[11].HeaderText = "Semana";
 
             foreach (DataGridViewColumn columns in dgv.Columns)
             {

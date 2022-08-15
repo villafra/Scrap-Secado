@@ -11,7 +11,7 @@ namespace DAL
 {
     public class Sharepoint
     {
-        private OleDbConnection conexion = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; WSS;IMEX=0;RetrieveIds=Yes;DATABASE=https://team.effem.com/sites/DataBaseMer;LIST={958E2BAD-E1DD-4A3A-A9D7-C524F269071E}");
+        private OleDbConnection conexion = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; WSS;IMEX=0;RetrieveIds=Yes;DATABASE=https://team.effem.com/sites/DataBaseMer;LIST={7C58A171-9047-46B3-B29A-A40610EE12BE}");
         private OleDbConnection connection;
         private OleDbTransaction transaction;
         private OleDbCommand command;
@@ -64,7 +64,7 @@ namespace DAL
                 CerrarConexion();
             }
         }
-        public bool EscribirTransaction(string[] query)
+        public bool EscribirTransaction(string[] query, double costo)
         {
             AbrirConexion();
             OleDbTransaction oleDBTransaction;
@@ -76,9 +76,13 @@ namespace DAL
             {
                 foreach (string queryItem in query)
                 {
-                    cmd.CommandText = queryItem;
-                    cmd.Transaction = oleDBTransaction;
-                    cmd.ExecuteNonQuery();
+                    if (queryItem != null)
+                    {
+                        cmd.CommandText = queryItem;
+                        cmd.Transaction = oleDBTransaction;
+                        cmd.Parameters.AddWithValue("@Costo", costo);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 oleDBTransaction.Commit();
                 return true;
@@ -99,6 +103,33 @@ namespace DAL
             {
                 CerrarConexion();
             }
+        }
+        public DataTable DevolverListado(string query, Hashtable hashtable)
+        {
+            DataTable dt = new DataTable();
+            OleDbDataAdapter adapter;
+            try
+            {
+                adapter = new OleDbDataAdapter(query, conexion);
+                adapter.Fill(dt);
+                if (hashtable != null)
+                {
+                    foreach (string key in hashtable.Keys)
+                    {
+                        command.Parameters.AddWithValue(key, hashtable[key]);
+                    }
+                }
+            }
+            catch (OleDbException error)
+            {
+                throw error;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            CerrarConexion();
+            return dt;
         }
     }
 }

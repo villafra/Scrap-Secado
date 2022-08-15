@@ -19,6 +19,8 @@ namespace BE
         public string Motivo { get; set; }
         public double Costo_Desvío { get; set; }
         public string Comentarios { get; set; }
+        public Enumerables.Periodo Periodo { get; set; }
+        public Enumerables.Semana Semana { get; set; }
 
     }
 }
