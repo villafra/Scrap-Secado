@@ -19,6 +19,7 @@ namespace Scrap_Secado
         BLL_Scrap_Secado _Scrap;
         Kibble_Finished KF;
         BE.Scrap_Secado Scrap;
+        Progreso prog = new Progreso();
         public frmScrap_Secado()
         {
             InitializeComponent();
@@ -34,6 +35,8 @@ namespace Scrap_Secado
         {
             Refrescar();
             ToolTipiar();
+            dtpFechaScrap.Value = DateTime.Now;
+            dtpHoraScrap.Value = DateTime.Now;
 
         }
 
@@ -120,6 +123,8 @@ namespace Scrap_Secado
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            try
+            {
             if (Cálculos.Camposvacios(grpNuevoScrap))
             {
                 Nuevo();
@@ -129,11 +134,32 @@ namespace Scrap_Secado
                 Refrescar();
             }
             else { Cálculos.MsgBox("Por favor, Llene los campos obligatorios"); }
+            }
+            catch(Exception ex)
+            {
+                Cálculos.MsgBox(ex.Message);
+            }
+
         }
 
         private void txtOperador_KeyPress(object sender, KeyPressEventArgs e)
         {
             Cálculos.ValidarLetras(e);
+        }
+
+        private void bgwSecado_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void bgwSecado_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void bgwSecado_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
         }
     }
 }

@@ -53,8 +53,9 @@
             this.PanelMenu.Controls.Add(this.picMenu);
             this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelMenu.Location = new System.Drawing.Point(0, 0);
+            this.PanelMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PanelMenu.Name = "PanelMenu";
-            this.PanelMenu.Size = new System.Drawing.Size(233, 653);
+            this.PanelMenu.Size = new System.Drawing.Size(175, 531);
             this.PanelMenu.TabIndex = 0;
             // 
             // btnSalir
@@ -62,9 +63,10 @@
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.ImageIndex = 1;
             this.btnSalir.ImageList = this.ListaImagenes;
-            this.btnSalir.Location = new System.Drawing.Point(12, 577);
+            this.btnSalir.Location = new System.Drawing.Point(9, 469);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(208, 50);
+            this.btnSalir.Size = new System.Drawing.Size(156, 41);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -82,9 +84,10 @@
             this.btnScrap_Secado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnScrap_Secado.ImageIndex = 0;
             this.btnScrap_Secado.ImageList = this.ListaImagenes;
-            this.btnScrap_Secado.Location = new System.Drawing.Point(12, 206);
+            this.btnScrap_Secado.Location = new System.Drawing.Point(9, 167);
+            this.btnScrap_Secado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnScrap_Secado.Name = "btnScrap_Secado";
-            this.btnScrap_Secado.Size = new System.Drawing.Size(208, 50);
+            this.btnScrap_Secado.Size = new System.Drawing.Size(156, 41);
             this.btnScrap_Secado.TabIndex = 1;
             this.btnScrap_Secado.Text = "Scrap Secado";
             this.btnScrap_Secado.UseVisualStyleBackColor = true;
@@ -93,9 +96,10 @@
             // picMenu
             // 
             this.picMenu.Image = global::Scrap_Secado.Properties.Resources.Mars_Petcare;
-            this.picMenu.Location = new System.Drawing.Point(-7, -30);
+            this.picMenu.Location = new System.Drawing.Point(-5, -24);
+            this.picMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.picMenu.Name = "picMenu";
-            this.picMenu.Size = new System.Drawing.Size(249, 127);
+            this.picMenu.Size = new System.Drawing.Size(187, 103);
             this.picMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picMenu.TabIndex = 0;
             this.picMenu.TabStop = false;
@@ -108,64 +112,71 @@
             this.PanelTiempo.Controls.Add(this.lblPxWx);
             this.PanelTiempo.Controls.Add(this.lblHora);
             this.PanelTiempo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelTiempo.Location = new System.Drawing.Point(233, 0);
+            this.PanelTiempo.Location = new System.Drawing.Point(175, 0);
+            this.PanelTiempo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PanelTiempo.Name = "PanelTiempo";
-            this.PanelTiempo.Size = new System.Drawing.Size(883, 34);
+            this.PanelTiempo.Size = new System.Drawing.Size(662, 28);
             this.PanelTiempo.TabIndex = 2;
             // 
             // lblTransacción
             // 
             this.lblTransacción.AutoSize = true;
-            this.lblTransacción.Location = new System.Drawing.Point(249, 9);
+            this.lblTransacción.Location = new System.Drawing.Point(187, 7);
+            this.lblTransacción.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTransacción.Name = "lblTransacción";
-            this.lblTransacción.Size = new System.Drawing.Size(0, 16);
+            this.lblTransacción.Size = new System.Drawing.Size(0, 13);
             this.lblTransacción.TabIndex = 4;
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(6, 9);
+            this.lblUsuario.Location = new System.Drawing.Point(4, 7);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(11, 16);
+            this.lblUsuario.Size = new System.Drawing.Size(10, 13);
             this.lblUsuario.TabIndex = 3;
             this.lblUsuario.Text = "-";
             // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(524, 9);
+            this.lblFecha.Location = new System.Drawing.Point(393, 7);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(11, 16);
+            this.lblFecha.Size = new System.Drawing.Size(10, 13);
             this.lblFecha.TabIndex = 2;
             this.lblFecha.Text = "-";
             // 
             // lblPxWx
             // 
             this.lblPxWx.AutoSize = true;
-            this.lblPxWx.Location = new System.Drawing.Point(664, 9);
+            this.lblPxWx.Location = new System.Drawing.Point(498, 7);
+            this.lblPxWx.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPxWx.Name = "lblPxWx";
-            this.lblPxWx.Size = new System.Drawing.Size(11, 16);
+            this.lblPxWx.Size = new System.Drawing.Size(10, 13);
             this.lblPxWx.TabIndex = 1;
             this.lblPxWx.Text = "-";
             // 
             // lblHora
             // 
             this.lblHora.AutoSize = true;
-            this.lblHora.Location = new System.Drawing.Point(788, 9);
+            this.lblHora.Location = new System.Drawing.Point(591, 7);
+            this.lblHora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(11, 16);
+            this.lblHora.Size = new System.Drawing.Size(10, 13);
             this.lblHora.TabIndex = 0;
             this.lblHora.Text = "-";
             // 
             // frmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1116, 653);
+            this.ClientSize = new System.Drawing.Size(837, 531);
             this.Controls.Add(this.PanelTiempo);
             this.Controls.Add(this.PanelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

@@ -11,20 +11,21 @@ namespace DAL
 {
     public class Sharepoint
     {
-        private OleDbConnection conexion = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; WSS;IMEX=0;RetrieveIds=Yes;DATABASE=https://team.effem.com/sites/DataBaseMer;LIST={7C58A171-9047-46B3-B29A-A40610EE12BE}");
+        //private OleDbConnection conexion = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; WSS;IMEX=0;RetrieveIds=Yes;DATABASE=https://team.effem.com/sites/DataBaseMer;LIST={7C58A171-9047-46B3-B29A-A40610EE12BE}");
+        private OleDbConnection conexionShare = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source =|DataDirectory|Registro.accdb; Persist Security Info = False");
         private OleDbConnection connection;
         private OleDbTransaction transaction;
         private OleDbCommand command;
 
         private void AbrirConexion()
         {
-            conexion.Open();
+            conexionShare.Open();
         }
         private void CerrarConexion()
         {
-            conexion.Close();
-            conexion.Dispose();
-            conexion = null;
+            conexionShare.Close();
+            conexionShare.Dispose();
+            conexionShare = null;
             GC.Collect();
         }
         public bool Escribir(string query, Hashtable hashtable)
@@ -32,8 +33,8 @@ namespace DAL
             AbrirConexion();
             try
             {
-                transaction = conexion.BeginTransaction();
-                command = new OleDbCommand(query, conexion, transaction);
+                transaction = conexionShare.BeginTransaction();
+                command = new OleDbCommand(query, conexionShare, transaction);
                 command.CommandType = CommandType.StoredProcedure;
 
                 if (hashtable != null)
@@ -70,8 +71,8 @@ namespace DAL
             OleDbTransaction oleDBTransaction;
             OleDbCommand cmd = new OleDbCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.Connection = conexion;
-            oleDBTransaction = conexion.BeginTransaction();
+            cmd.Connection = conexionShare;
+            oleDBTransaction = conexionShare.BeginTransaction();
             try
             {
                 foreach (string queryItem in query)
@@ -110,7 +111,7 @@ namespace DAL
             OleDbDataAdapter adapter;
             try
             {
-                adapter = new OleDbDataAdapter(query, conexion);
+                adapter = new OleDbDataAdapter(query, conexionShare);
                 adapter.Fill(dt);
                 if (hashtable != null)
                 {

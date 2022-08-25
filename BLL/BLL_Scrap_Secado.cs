@@ -11,34 +11,34 @@ namespace BLL
 {
     public class BLL_Scrap_Secado : IGestionable<Scrap_Secado>
     {
-        Mapp_Scrap_Secado Mapper;
+        Mapp_Scrap_Secado MapperShare;
         public BLL_Scrap_Secado()
         {
-            Mapper = new Mapp_Scrap_Secado();
+            MapperShare = new Mapp_Scrap_Secado();
         }
         public bool Baja(Scrap_Secado KF)
         {
-            return Mapper.Baja(KF);
+            return MapperShare.Baja(KF);
         }
 
         public bool Guardar(Scrap_Secado KF)
         {
-            return Mapper.Guardar(KF);
+            return MapperShare.Guardar(KF);
         }
 
         public List<Scrap_Secado> Listar()
         {
-            return Mapper.Listar();
+            return MapperShare.Listar();
         }
 
         public List<Scrap_Secado> Listar(string Familia)
         {
-            return Mapper.Listar(Familia);
+            return MapperShare.Listar(Familia);
         }
 
         public Scrap_Secado ListarObjeto(Scrap_Secado KF)
         {
-            return Mapper.ListarObjeto(KF);
+            return MapperShare.ListarObjeto(KF);
         }
     }
 }

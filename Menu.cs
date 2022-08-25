@@ -64,5 +64,6 @@ namespace Scrap_Secado
         {
             Cálculos.Salir();
         }
+
     }
 }

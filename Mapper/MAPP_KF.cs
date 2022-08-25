@@ -12,7 +12,7 @@ namespace Mapper
 {
     public class MAPP_KF : IGestionable<Kibble_Finished>
     {
-        DataBase Acceso;
+        DataBase Acceso, AccesoShare;
         public bool Baja(Kibble_Finished KF)
         {
             throw new NotImplementedException();
@@ -72,9 +72,9 @@ namespace Mapper
         }
         public Kibble_Finished ListarKF (int codigo)
         {
-            Acceso = new DataBase();
-            string query = "Select [Código], [Descripcion], [Costo], [Familia] from Recetas inner join Familias on [Recetas].ID_Familia=[Familias].ID where Activo=true";
-            DataTable Dt = Acceso.DevolverListado(query, null);
+            AccesoShare = new DataBase();
+            string query = "Select [Código], [Descripcion], [Costo], [Familia] from Recetas inner join Familias on [Recetas].ID_Familia=[Familias].ID where Activo=true and [Código]=" + codigo;
+            DataTable Dt = AccesoShare.DevolverListado(query, null);
             Kibble_Finished KF = new Kibble_Finished();
             if (Dt.Rows.Count > 0)
             {
