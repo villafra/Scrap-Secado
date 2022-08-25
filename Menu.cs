@@ -35,13 +35,28 @@ namespace Scrap_Secado
         {
             DateTime hora = DateTime.Now;
             lblHora.Text = hora.ToString("HH:mm");
-            lblPxWx.Text = MarsCalendar.MarsLote(Convert.ToDateTime("01/01/2022"),hora,3);
+            lblPxWx.Text = MarsCalendar.MarsLote(hora,3);
             lblFecha.Text = hora.ToString("dd/MM/yyyy");
             lblUsuario.Text = usuario.Name;
         }
         private void Menu_Load(object sender, EventArgs e)
         {
             usuario = WindowsIdentity.GetCurrent();
+            if (!MarsCalendar.FechaInicio(DateTime.Now))
+            {
+                Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FechaInicio);
+                if (frm != null)
+                {
+                    frm.BringToFront();
+                    return;
+                }
+                else
+                {
+                    frm = new FechaInicio();
+                    frm.ShowDialog();
+                }
+            }
+            MarsCalendar.CargarFechaInicio();
         }
 
         private void btnScrap_Secado_Click(object sender, EventArgs e)

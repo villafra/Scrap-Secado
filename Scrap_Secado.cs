@@ -63,7 +63,7 @@ namespace Scrap_Secado
         }
         private string CalcularPeriodo()
         {
-            return MarsCalendar.MarsPx(Convert.ToDateTime("01/01/2022"), DateTime.Now); 
+            return MarsCalendar.MarsPx(DateTime.Now); 
         }
 
 
@@ -112,8 +112,8 @@ namespace Scrap_Secado
             Scrap.Costo_Desvío = KF.CalcularCosto();
             Scrap.Comentarios = txtMotivo.Text;
             Scrap.Motivo = txtMotivo.Text;
-            Scrap.Periodo = (Enumerables.Periodo)Enum.Parse(typeof(Enumerables.Periodo),MarsCalendar.MarsPx(new DateTime(2022, 01, 01), dtpFechaScrap.Value));
-            Scrap.Semana = (Enumerables.Semana)Enum.Parse(typeof(Enumerables.Semana), MarsCalendar.MarsWx(new DateTime(2022, 01, 01), dtpFechaScrap.Value));
+            Scrap.Periodo = (Enumerables.Periodo)Enum.Parse(typeof(Enumerables.Periodo),MarsCalendar.MarsPx(dtpFechaScrap.Value));
+            Scrap.Semana = (Enumerables.Semana)Enum.Parse(typeof(Enumerables.Semana), MarsCalendar.MarsWx(dtpFechaScrap.Value));
         }
 
         private void btnLimpiarPantalla_Click(object sender, EventArgs e)

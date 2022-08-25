@@ -35,7 +35,7 @@ namespace Automatización
             FormatearMenuStrip(formulario);
         };
 
-        public static Action<Form, GroupBox, int, int> FormatearLogin = (formulario, grp, Width, Height) =>
+        public static Action<Form, GroupBox, int, int> FormatearFormIndividual = (formulario, grp, Width, Height) =>
         {
             formulario.FormBorderStyle = new FormBorderStyle();
             formulario.BackColor = Color.FromArgb(46, 51, 73);

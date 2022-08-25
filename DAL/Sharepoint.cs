@@ -12,8 +12,8 @@ namespace DAL
     public class Sharepoint
     {
         //private OleDbConnection conexion = new OleDbConnection(@"Provider = Microsoft.ACE.OLEDB.12.0; WSS;IMEX=0;RetrieveIds=Yes;DATABASE=https://team.effem.com/sites/DataBaseMer;LIST={7C58A171-9047-46B3-B29A-A40610EE12BE}");
-        private OleDbConnection conexionShare = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source =|DataDirectory|Registro.accdb; Persist Security Info = False");
-        private OleDbConnection connection;
+        private OleDbConnection conexionShare = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source =S:\public\Base de Datos\Registro.accdb; Persist Security Info = False");
+        //private OleDbConnection connection;
         private OleDbTransaction transaction;
         private OleDbCommand command;
 
